@@ -16,6 +16,43 @@
 		background-color: #FFF;
 		height: 300px;
 	}
+	/* The Modal (background) */
+	.tmodal {
+	  display: none; /* Hidden by default */
+	  position: fixed; /* Stay in place */
+	  z-index: 100; /* Sit on top */
+	  left: 0px;
+	  top: 0px;
+	  width: 100%; /* Full width */
+	  height: 100%; /* Full height */
+	  overflow: auto; /* Enable scroll if needed */
+	  background-color: rgb(0,0,0); /* Fallback color */
+	  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content/Box */
+	.tmodal-content {
+	  background-color: #fefefe;
+	  margin: 15% auto; /* 15% from the top and centered */
+	  padding: 20px;
+	  border: 1px solid #888;
+	  width: 80%; /* Could be more or less, depending on screen size */
+	}
+
+	/* The Close Button */
+	.tclose {
+	  color: #aaa;
+	  float: right;
+	  font-size: 28px;
+	  font-weight: bold;
+	}
+
+	.tclose:hover,
+	.tclose:focus {
+	  color: black;
+	  text-decoration: none;
+	  cursor: pointer;
+	}
 </style>
 <body style="background-color: #308d57;">
 	<h2>Thoth's Book</h2>
@@ -78,5 +115,12 @@
             </div>
           </div>
         </footer>
+		<!-- Modal content -->
+		<div id="myModal" class="tmodal">
+		  <div class="tmodal-content">
+		    <span class="tclose">&times;</span>
+		    <div id="modalContent"></div>
+		  </div>
+		</div>
 </body>
 </html>
