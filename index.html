@@ -61,15 +61,15 @@
 	<div class="row center-align">
 		<div class="col s5">
 			<h4>Input</h4>
-			<textarea></textarea>
+			<textarea id="inputTextArea"></textarea>
 		</div>
 		<div class="col s2">
 			<h4>Hint</h4>
-			<a class="waves-effect waves-light btn">Some Hint may show here.</a>
+			<a id="hintBox" class="waves-effect waves-light btn" onclick="clearHint()">Some Hint may show here.</a>
 		</div>
 		<div class="col s5">
 			<h4>Result</h4>
-			<textarea></textarea>
+			<textarea id="resultTextArea"></textarea>
 		</div>
 	</div>
 	<div class="row center-align">
@@ -122,5 +122,9 @@
 		    <div id="modalContent"></div>
 		  </div>
 		</div>
+        <script src="./src/main.js"></script>
+		<script src="./src/contentHelper.js"></script>
+		<script src="./src/formator.js"></script>
+		<script src="./src/extraFunction.js"></script>
 </body>
 </html>
