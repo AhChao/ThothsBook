@@ -14,3 +14,25 @@ function rgbToHex()
 	HintBox.getInstance().style("background-color",hexString);
 	ResultField.updateContent(hexString);
 }
+
+function sumTheNums()
+{
+	var nums = InputField.getContent().split("\n");
+	var result = 0;
+	for(var index in nums)
+	{
+		result += Number(nums[index]);
+	}
+	HintBox.updateContent("Sum is "+result+" !");
+}
+
+function avgTheNums()
+{
+	var nums = InputField.getContent().split("\n");
+	var result = 0;
+	for(var index in nums)
+	{
+		result += Number(nums[index]);
+	}
+	HintBox.updateContent("Avg is "+result/nums.length+" !");
+}
