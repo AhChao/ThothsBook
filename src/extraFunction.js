@@ -1,6 +1,6 @@
 function formTableView()
 {
-	var contentByLines = d3.select("#inputTextArea").property("value").split("\n");
+	var contentByLines = InputField.getContent().split("\n");
 	var rowCount = contentByLines.length;
 	var colCount = contentByLines[0].split("	").length;
 	var contentByColByLines;
@@ -35,5 +35,5 @@ function formTableView()
 	}
 	tableContent += tableStructureEnd;
 	d3.select("#modalContent").html(tableContent);
-	showModal();
+	Modal.show();
 }
