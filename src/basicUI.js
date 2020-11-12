@@ -21,6 +21,10 @@ var HintBox =
 
 var InputField = 
 {
+	updateContent : function(content)	
+	{
+		d3.select("#inputTextArea").property("value",content);
+	},
 	getContent : function()	
 	{
 		return d3.select("#inputTextArea").property("value")
@@ -32,6 +36,10 @@ var ResultField =
 	updateContent : function(content)	
 	{
 		d3.select("#resultTextArea").property("value",content);
+	},
+	getContent : function()	
+	{
+		return d3.select("#resultTextArea").property("value")
 	}
 }
 
