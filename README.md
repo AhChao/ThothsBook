@@ -1,5 +1,6 @@
 # ThothsBook
-Makes texts work easier.
+
+Makes texts work easier.<br>
 Reduce regular works time cost.
-**Page Link**
-- https://ahchao.github.io/ThothsBook/
+<br>
+[Open the book](https://ahchao.github.io/ThothsBook/)
