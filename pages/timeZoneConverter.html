@@ -28,13 +28,46 @@
                     <div class="col-6">
                         <input type="time" v-bind="inputTime">
                     </div>
+                    <div class="col-6">
+                        Time Zone
+                    </div>
+                    <div class="col-6">
+                        <div class="dropdown">
+                            <input class="btn btn-secondary dropdown-toggle" type="dropdown" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" v-model="leftSideChosen">
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                <li v-for="timezone in leftSideFilteredTimezones" @click="selectTimeZone(timezone,'left')"><a class="dropdown-item">{{timezone}}</a></li>
+                            </ul>
+                          </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-6"></div>
+            <div class="col-1">
+                <button class="mt-2" @click="convertTime">─Convert→</button>
+                <button class="mt-2">←Switch→</button>
+            </div>
+            <div class="col-5">
+                <div class="row">
+                    <div class="col-6">
+                        Time Zone
+                    </div>
+                    <div class="col-6">
+                        <div class="dropdown">
+                            <input class="btn btn-secondary dropdown-toggle" type="dropdown" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" v-model="rightSideChosen">
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                                <li v-for="timezone in rightSideFilteredTimezones" @click="selectTimeZone(timezone,'right')"><a class="dropdown-item">{{timezone}}</a></li>
+                            </ul>
+                          </div>
+                    </div>
+                    <div class="col-6">
+                        Time
+                    </div>
+                    <div class="col-6">{{rightSideTime}}</div>
+                </div>
+            </div>
         </div>
     </div>
     
-
+    <script src="../lib/bootstrap.bundle.min.js"></script>
     <script src="../lib/vue.global.js"></script>
     <script src="../src/timeZone.js"></script>
 </body>
