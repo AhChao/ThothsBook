@@ -36,6 +36,25 @@ const app = Vue.createApp({
                 this.rightSideChosen = timezoneStr;
             }
         },
+        isValidTimeZone(timezoneStr) {
+            return this.timezones.map(x => x[0]).indexOf(timezoneStr) != -1;
+        },
+        convertTime() {
+            if (this.useingLocalTime == true) {
+                if (this.isValidTimeZone(this.rightSideChosen.split(" | ")[0])) {
+                    console.log("Convert Local Time");
+                    let hrs = -(new Date().getTimezoneOffset() / 60);
+                    let rightTimeDiff = this.dealWithTimeZoneOffsetString(this.timezones.filter(x => x[0] + " | " + x[1] == this.rightSideChosen)[0][3]);
+                    console.log(hrs, rightTimeDiff, rightTimeDiff.substring(5), hrs - rightTimeDiff.substring(5));
+                    let h = rightTimeDiff.substring(5) - hrs;
+                    console.log(new Date(new Date(this.localTime).getTime() + h * 60 * 60 * 1000));
+                    this.rightSideTime = new Date(new Date(this.localTime).getTime() + h * 60 * 60 * 1000);
+                }
+            }
+        },
+        dealWithTimeZoneOffsetString(timeZoneOffsetStr) {
+            return timeZoneOffsetStr;
+        }
     }
 });
 app.mount('#app');
