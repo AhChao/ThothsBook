@@ -18,8 +18,16 @@ const app = Vue.createApp({
         leftSideFilteredTimezones() {
             return this.timezones.filter(x => x[0].toLowerCase().indexOf(this.leftSideChosen.toLowerCase()) != -1 || this.leftSideChosen == "").map(x => x[0] + " | " + x[1]);
         },
+        leftUTCOffset() {
+            let temp = this.timezones.filter(x => x[0] == this.leftSideChosen.split(" | ")[0])[0];
+            return temp == undefined ? "" : temp[3];
+        },
         rightSideFilteredTimezones() {
             return this.timezones.filter(x => x[0].toLowerCase().indexOf(this.rightSideChosen.toLowerCase()) != -1 || this.rightSideChosen == "").map(x => x[0] + " | " + x[1]);
+        },
+        rightUTCOffset() {
+            let temp = this.timezones.filter(x => x[0] == this.rightSideChosen.split(" | ")[0])[0];
+            return temp == undefined ? "" : temp[3];
         }
     },
     methods: {
@@ -53,6 +61,9 @@ const app = Vue.createApp({
             }
         },
         dealWithTimeZoneOffsetString(timeZoneOffsetStr) {
+            if (timeZoneOffsetStr.indexOf(":30") != -1) {
+                timeZoneOffsetStr = timeZoneOffsetStr.replace(":30", ".5");
+            }
             return timeZoneOffsetStr;
         }
     }
